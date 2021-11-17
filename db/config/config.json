@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "elbrus",
-    "password": null,
+    "username": "postgres",
+    "password": "postgres",
     "database": "jays-project",
     "host": "127.0.0.1",
     "dialect": "postgres"
