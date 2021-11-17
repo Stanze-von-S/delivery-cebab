@@ -1,12 +1,14 @@
 const formSignUp = document.getElementById('signupForm');
 
 formSignUp.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
   const user = {
-    username: formSignUp.username,
-    email: formSignUp.email,
-    password: formSignUp.password,
-    phone: formSignUp.phone,
-    role: formSignUp.role,
+    username: formSignUp.username.value,
+    email: formSignUp.email.value,
+    password: formSignUp.password.value,
+    phone: formSignUp.phone.value,
+    role: formSignUp.role.value,
   };
   const response = await fetch('/registration', {
     method: 'POST',
@@ -15,6 +17,9 @@ formSignUp.addEventListener('submit', async (event) => {
     },
     body: JSON.stringify(user),
   });
-  const json = response.json();
-});
 
+  const responseJson = await response.json();
+  // if (responseJson.error)
+
+  // window.location.href = '/login';
+});

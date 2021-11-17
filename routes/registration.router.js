@@ -1,4 +1,5 @@
 const express = require('express');
+const { Op } = require('sequelize');
 const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
 
@@ -17,23 +18,33 @@ router.post('/', async (req, res) => {
     phone,
     role,
   } = req.body;
-  const findEl = await User.findOne({
-    where: { email },
+
+  const equalUser = await User.findOne({
+    where: {
+      [Op.or]: [
+        { email },
+        { username },
+        { phone },
+      ],
+    },
   });
-  if (!findEl) {
+
+  if (!equalUser) {
     const hashedPassword = await bcrypt.hash(password, 10);
-    const user = await User.create({
+
+    await User.create({
       username,
       password: hashedPassword,
       email,
       phone,
       role,
     });
-    res.redirect('/login');
+    res.status(200).json({ message: 'User created successfully' });
   } else {
-    res.render('registration', {
-      error: true,
-    });
+    // res.render('registration', {
+    //   error: true,
+    // });
+    res.json()
   }
 });
 
