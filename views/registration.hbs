@@ -1,4 +1,9 @@
+{{#if error}}
+<h1>Ошибка</h1>
+<p>Пользователь с таким адресом электронной почты уже есть. Пожалуйста, зарегистрируйтесь.</p>
+{{else}}
 <h1>Регистрация</h1>
+{{/if}}
 <form id="signupForm" method="POST" action="/registration">
   <div class="form-group">
     <label for="username">Логин:
@@ -16,5 +21,19 @@
       <input id="password" class="form-control" name="password" type="password" required minlength="8">
     </label>
   </div>
+  <div class="form-group">
+    <label for="phone">Телефон:
+      <input id="phone" class="form-control" name="phone" type="tel" required minlength="8">
+    </label>
+  </div>
+  <div class="form-group">
+    <label for="role">Выберите между курьером и клиентом:
+      <select id="role" class="form-control" name="role" type="password" required minlength="8">
+        <option value="courier">Курьер</option>
+        <option value="customer">Клиент</option>
+      </select>
+    </label>
+  </div>
   <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
 </form>
+<script src="/js/registration.js"></script>
