@@ -8,6 +8,8 @@ const bcrypt = require('bcrypt');
 const indexRouter = require('./routes/index.router'); // Index router req
 const regRouter = require('./routes/registration.router');
 const loginRouter = require('./routes/login.router');
+const logoutRouter = require('./routes/logout.router');
+
 
 const PORT = process.env.PORT ?? 3000;
 
@@ -40,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter); // Index router setup
 app.use('/registration', regRouter);
 app.use('/login', loginRouter);
-app.use('/logout', loginRouter);
+app.use('/logout', logoutRouter);
 
 app.listen(PORT, () => {
   console.log(`*** Server started on port ${PORT} ***`);
