@@ -1,0 +1,20 @@
+ title = кебаб из курицы
+ price = 300
+ discount = 10
+ src = https://i.obozrevatel.com/food/recipemain/2019/1/8/112.jpg?size=636x424
+userID = 1
+ categoryId = 1
+
+ title = кебаб из бараниы по грузински
+ price = 400
+ discount = 8
+ src = https://www.gastronom.ru/binfiles/images/20170417/bb5473ed.jpg
+ userID = 1
+ categoryId = 1
+
+title = Люля кебаб по азербайджански
+price = 500
+discount = 13
+src = https://www.gastronom.ru/binfiles/images/20150224/b90c819d.jpg
+categoryId = 1
+userID = 1

@@ -20,13 +20,5 @@ router.get('/', (req, res) => {
 //   res.redirect('/login');
 // });
 
-router.get('/logout', (req, res) => {
-  // req.session.destroy((err) => {
-  //   if (err) {
-  //     return next(err);
-  //   }
-  //   res.clearCookie(req.app.get('session cookie name'));
-  res.redirect('/');
-  // });
-});
+
 module.exports = router;
