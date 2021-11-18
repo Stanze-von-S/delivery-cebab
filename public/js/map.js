@@ -6,11 +6,11 @@ window.addEventListener('load', async (event) => {
     (position) => {
       latitude = position.coords.latitude;
       longitude = position.coords.longitude;
+      ymaps.ready(init);
     },
   );
 });
 
-ymaps.ready(init);
 
 function init() {
   const myMap = new ymaps.Map('map', {
