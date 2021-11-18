@@ -1,13 +1,9 @@
 const router = require('express').Router()
 
 router.get('/', (req, res) => {
-  // req.session.destroy((err) => {
-  //   if (err) {
-  //     return next(err);
-  //   }
-  //   res.clearCookie(req.app.get('session cookie name'));
+  res.clearCookie('user_sid');
+  req.session.destroy();
   res.redirect('/');
-  // });
 });
 
 module.exports = router;
