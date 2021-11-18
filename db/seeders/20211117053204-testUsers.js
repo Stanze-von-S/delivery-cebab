@@ -15,7 +15,7 @@ module.exports = {
         password: '123456',
         email: 'keshbek@keshbek.com',
         phone: '89221234567',
-        role: 'deliveryBoy',
+        role: 'courier',
         createdAt: new Date(),
         updatedAt: new Date(),
       },

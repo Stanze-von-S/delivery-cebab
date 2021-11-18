@@ -48,6 +48,10 @@ module.exports = (sequelize, DataTypes) => {
         model: 'Category',
       },
     },
+    customerId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+    },
   }, {
     sequelize,
     modelName: 'Product',
