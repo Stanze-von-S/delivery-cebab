@@ -11,6 +11,7 @@ const loginRouter = require('./routes/login.router');
 const logoutRouter = require('./routes/logout.router');
 const profileRouter = require('./routes/profile.router');
 const categoriesRouter = require('./routes/categories.router');
+const editRouter = require('./routes/api/edit.router');
 
 const PORT = process.env.PORT ?? 3000;
 
@@ -46,6 +47,7 @@ app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 app.use('/profile', profileRouter);
 app.use('/category', categoriesRouter);
+app.use('/api/edit', editRouter);
 
 app.listen(PORT, () => {
   console.log(`*** Server started on port ${PORT} ***`);
