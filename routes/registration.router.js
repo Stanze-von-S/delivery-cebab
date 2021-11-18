@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
     // res.render('registration', {
     //   error: true,
     // });
-    res.json()
+    res.json({ message: 'error' });
   }
 });
 

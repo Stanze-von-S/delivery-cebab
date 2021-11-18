@@ -8,9 +8,13 @@ window.addEventListener('load', async (event) => {
       longitude = position.coords.longitude;
       ymaps.ready(init);
     },
+    (positionError) => {
+      latitude = 59.943683;
+      longitude = 30.360164;
+      ymaps.ready(init);
+    },
   );
 });
-
 
 function init() {
   const myMap = new ymaps.Map('map', {
