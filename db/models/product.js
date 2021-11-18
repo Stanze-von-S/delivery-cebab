@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ Category, User }) {
       this.belongsTo(Category, { foreignKey: 'categoryId' });
       this.belongsTo(User, { foreignKey: 'userId' });
+      this.belongsTo(User, { as: 'thisCustomer', foreignKey: 'customerId' });
     }
   }
   Product.init({
@@ -46,6 +47,13 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       references: {
         model: 'Category',
+      },
+    },
+    customerId: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
+      references: {
+        model: 'User',
       },
     },
   }, {

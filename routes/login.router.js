@@ -1,24 +1,31 @@
 const express = require('express');
-// const bcrypt = require('bcrypt')
-// const { User } = require('../db/models');
+const bcrypt = require('bcrypt');
+const { User } = require('../db/models');
 
-// const logger = console
 const router = express.Router();
 
 router.get('/', (req, res) => {
   res.render('login');
 });
 
-// router.post('/', async (req, res) => {
-//   const { login, password, email } = req.body;
-//   // const hashedPassword = await bcrypt.hash(password, 10);
-//   const user = await User.create({
-//     username: login,
-//     password: password,
-//     email,
-//   });
-//   res.redirect('/login');
-// });
-
+router.post('/', async (req, res) => {
+  const { password, email } = req.body;
+  const existUser = await User.findOne({
+    where: {
+      email,
+    },
+  });
+  if (!existUser) {
+    res.send({ message: false });
+  } else {
+    const isCorrectPassword = await bcrypt.compare(password, existUser.password);
+    if (isCorrectPassword) {
+      req.session.user = existUser;
+      res.json({ message: true, redirect: '/' });
+    } else {
+      res.json({ message: false, redirect: '/' });
+    }
+  }
+});
 
 module.exports = router;

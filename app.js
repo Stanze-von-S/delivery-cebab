@@ -9,7 +9,9 @@ const indexRouter = require('./routes/index.router'); // Index router req
 const regRouter = require('./routes/registration.router');
 const loginRouter = require('./routes/login.router');
 const logoutRouter = require('./routes/logout.router');
+const profileRouter = require('./routes/profile.router');
 const categoriesRouter = require('./routes/categories.router');
+const editRouter = require('./routes/api/edit.router');
 
 const PORT = process.env.PORT ?? 3000;
 
@@ -43,7 +45,9 @@ app.use('/', indexRouter); // Index router setup
 app.use('/registration', regRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
+app.use('/profile', profileRouter);
 app.use('/category', categoriesRouter);
+app.use('/api/edit', editRouter);
 
 app.listen(PORT, () => {
   console.log(`*** Server started on port ${PORT} ***`);
