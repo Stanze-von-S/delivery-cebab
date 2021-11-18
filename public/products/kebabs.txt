@@ -1,0 +1,30 @@
+test kebab 1
+100
+10
+2
+1
+test kebab 2
+200
+25
+2
+1
+test kebab 3
+300
+50
+2
+1
+test pizza 1
+300
+10
+2
+2
+test pizza 2
+400
+25
+2
+2
+test pizza 3
+500
+50
+2
+2
