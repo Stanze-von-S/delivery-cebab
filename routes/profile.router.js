@@ -7,7 +7,6 @@ router
     if (req.session.user.role === 'courier') {
       const courier = req.session.user;
       const userProducts = await Product.findAll({ where: { userId: req.session.user.id } });
-      console.log(userProducts);
       res.render('profile', { courier, userProducts });
     } else {
       const customer = req.session.user;
