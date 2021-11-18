@@ -7,6 +7,7 @@ window.addEventListener('load', async (event) => {
       latitude = position.coords.latitude;
       longitude = position.coords.longitude;
       ymaps.ready(init);
+
     },
     (positionError) => {
       latitude = 59.943683;

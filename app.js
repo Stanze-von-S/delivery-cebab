@@ -44,7 +44,6 @@ app.use('/registration', regRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
 
-
 app.listen(PORT, () => {
   console.log(`*** Server started on port ${PORT} ***`);
 });
