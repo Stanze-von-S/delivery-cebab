@@ -8,12 +8,14 @@
     integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
   <link rel='stylesheet' href='/styles/style.css'>
+  <link rel="stylesheet" href="/styles/profile.css">
+
 
   <script defer src="/js/main.js"></script> 
 
   <link rel="stylesheet" href="/styles/map.css">
-  <script defer src="https://api-maps.yandex.ru/2.1/?apikey=c1dc2a25-2ea2-4b3e-87a8-d091b5e6ebb7&lang=ru_RU" type="text/javascript"></script>
-  <script defer src="/js/map.js"></script>
+  {{!-- <script defer src="https://api-maps.yandex.ru/2.1/?apikey=c1dc2a25-2ea2-4b3e-87a8-d091b5e6ebb7&lang=ru_RU" type="text/javascript"></script> --}}
+  {{!-- <script defer src="/js/map.js"></script> --}}
 
 </head>
 
@@ -25,6 +27,7 @@
       <div class="navbar-collapse" id="navbarSupportedContent">
         
             <a class="nav-link active" aria-current="page" href="/">Home</a>
+            <a class="nav-link active" aria-current="page" href="/profile">Profile</a>
             {{!-- {{#if username}} --}}
             <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
             {{!-- {{else}} --}}
