@@ -1,5 +1,3 @@
-Test text in index.hbs
-
   <div class="radiusSearchGroup">
     <p>Радиус поиска:
       <input type="range" min="1" max="100" step="1" name="radiusSearch" value="50">
@@ -7,3 +5,15 @@ Test text in index.hbs
   </div>
 
   <div id="map"></div>
+
+<p>Категории</p>
+
+<ul class="list">
+  {{#each categories}}
+<li class="listItem">
+<input data-category_index="{{this.id}}" name="my_btn" class="appendBtn btn btn-outline-success" type="button"
+      value="{{this.title}}">
+      </li>
+      {{/each}}
+</ul>
+
