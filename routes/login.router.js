@@ -23,9 +23,10 @@ router.post('/', async (req, res) => {
     if (isCorrectPassword) {
       // req.session.isCorrectPassword = true;
       req.session.user = existUser;
-      res.json({ message: true });
+      res.json({ message: true, redirect: '/' });
+    } else {
+      res.json({ message: false, redirect: '/' });
     }
-    res.send({ message: false });
   }
 });
 

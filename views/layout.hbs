@@ -25,7 +25,9 @@
       <a class="navbar-brand" href="/">{{title}}</a>
       
       <div class="navbar-collapse" id="navbarSupportedContent">
-        
+        {{#if data.message }}
+        <p>Hello</p>
+        {{/if}}
             <a class="nav-link active" aria-current="page" href="/">Home</a>
             <a class="nav-link active" aria-current="page" href="/profile">Profile</a>
             {{!-- {{#if username}} --}}

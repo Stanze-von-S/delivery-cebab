@@ -18,10 +18,9 @@ form.addEventListener('submit', async (event) => {
     body: JSON.stringify(user),
   });
   const data = await response.json();
-
   if (data.message) {
     nullForm(form);
-    window.location = '/';
+    window.location.href = data.redirect;
   } else {
     const p = document.createElement('p');
     p.innerText = 'Вы ввели неправильные учётные данные. Введите корректные данные электронной почты и пароля.';
