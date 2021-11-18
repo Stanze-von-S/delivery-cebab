@@ -1,1 +1,10 @@
-Test text in index.hbs
+<p>Категории</p>
+
+<ul class="list">
+  {{#each categories}}
+<li class="listItem">
+<input data-category_index="{{this.id}}" name="my_btn" class="appendBtn btn btn-outline-success" type="button"
+      value="{{this.title}}">
+      </li>
+      {{/each}}
+</ul>

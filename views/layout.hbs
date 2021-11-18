@@ -25,14 +25,14 @@
       <div class="navbar-collapse" id="navbarSupportedContent">
         
             <a class="nav-link active" aria-current="page" href="/">Home</a>
-            <a class="nav-link active" aria-current="page" href="/registration">Registration</a>
-            <a class="nav-link active" aria-current="page" href="/login">Login</a>
+            {{!-- {{#if username}} --}}
             <a class="nav-link active" aria-current="page" href="/logout">Logout</a>
-          
+            {{!-- {{else}} --}}
+            <a class="nav-link active" aria-current="page" href="/registration">Registration</a>
+            <a class="nav-link active" aria-current="page" href="/login">Login</a>          
       </div>
     </div>
   </nav>
-  
   <div class="radiusSearchGroup">
     <p>Радиус поиска:
       <input type="range" min="1" max="100" step="1" name="radiusSearch" value="50">
@@ -40,6 +40,7 @@
   </div>
 
   <div id="map"></div>
+
 
   {{{body}}}
 </body>
