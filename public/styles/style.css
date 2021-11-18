@@ -1,0 +1,57 @@
+.text-end {
+  font-family:'Times New Roman', Times, serif;
+  padding-right: 50px;
+}
+   head {
+  background-image: url(https://notefood.ru/wp-content/uploads/2016/12/kebab_farsh.jpeg);
+}
+
+h2 {
+align-content: center;
+}
+
+.list-group {
+  align-content: center;
+
+}
+
+.categoriesList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+.listItem {
+  display: block;
+  align-content: center;
+  margin: auto;
+}
+ 
+.text-center {
+  
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+#signinForm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 20px;
+}
+
+
+ 
+
+
+
+
