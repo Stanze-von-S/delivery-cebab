@@ -1,19 +1,16 @@
-  <div id="categoryContainer">
+<div id="categoryContainer">
 
-    {{#each articles}}
-    <div class="card" style="width: 18rem;">
-      {{!-- <img src="..." class="card-img-top" alt="..."> --}}
-      <div class="card-body">
-        <h5 class="card-title">{{this.title}}</h5>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Price: {{this.price}} ₽</li>
-      </ul>
-      <div class="card-body">
-        <a href="/category/{{this.id}}/edit" class="card-link btn btn-outline-warning">Edit</a>
-        <button data-article_id="{{this.id}}" class="deleteBtn btn btn-outline-danger" type="button">Delete</button>
-      </div>
+  {{#each products}}
+  <div class="card" style="width: 28rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{this.title}}</h5>
     </div>
-    {{/each}}
-
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Price: {{this.price}} ₽</li>
+      <li class="list-group-item">Discount: {{this.discount}} %</li>
+      <li class="list-group-item">{{this.imgPath}}</li>
+    </ul>
   </div>
+  {{/each}}
+
+</div>
