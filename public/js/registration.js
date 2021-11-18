@@ -1,14 +1,21 @@
-const formSignUp = document.getElementById('signupForm');
+const form = document.getElementById('signupForm');
+function nullForm(form) {
+  form.username.value = '';
+  form.email.value = '';
+  form.password.value = '';
+  form.phone.value = '';
+  form.role.value = '';
+}
 
-formSignUp.addEventListener('submit', async (event) => {
+form.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const user = {
-    username: formSignUp.username.value,
-    email: formSignUp.email.value,
-    password: formSignUp.password.value,
-    phone: formSignUp.phone.value,
-    role: formSignUp.role.value,
+    username: form.username.value,
+    email: form.email.value,
+    password: form.password.value,
+    phone: form.phone.value,
+    role: form.role.value,
   };
   const response = await fetch('/registration', {
     method: 'POST',
@@ -19,7 +26,13 @@ formSignUp.addEventListener('submit', async (event) => {
   });
 
   const responseJson = await response.json();
-  // if (responseJson.error)
-
-  // window.location.href = '/login';
+  if (responseJson.message !== 'error') {
+    nullForm(form);
+    window.location.href = '/login';
+  } else {
+    nullForm(form);
+    const p = document.createElement('p');
+    p.innerText = 'В логине, адресе электронной почты или номере телефона есть совпадения с уже существующими аккаунтами. Пожалуйста, повторите попытку регистрации.';
+    form.after(p);
+  }
 });
