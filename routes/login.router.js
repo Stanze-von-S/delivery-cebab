@@ -2,7 +2,6 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const { User } = require('../db/models');
 
-// const logger = console
 const router = express.Router();
 
 router.get('/', (req, res) => {
@@ -21,7 +20,6 @@ router.post('/', async (req, res) => {
   } else {
     const isCorrectPassword = await bcrypt.compare(password, existUser.password);
     if (isCorrectPassword) {
-      // req.session.isCorrectPassword = true;
       req.session.user = existUser;
       res.json({ message: true, redirect: '/' });
     } else {
