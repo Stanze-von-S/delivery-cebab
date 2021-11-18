@@ -1,26 +1,38 @@
-  <h2>Role Profile</h2>
+ 
+ {{#if courier}}
+ <h2>Личный кабинет курьера</h2>
 <div class="profile-container">
   <div id="userData">
-    <p>username</p>
-    <p>email</p>
-    <p>phone</p>
+    <p>Имя пользователя: {{courier.username}}</p>
+    <p>E-mail: {{courier.email}}</p>
+    <p>Телефон: {{courier.phone}}</p>
   </div>
-
   <div id="product-list-container">
-    {{!-- {{#each articles}} --}}
-    <div class="card" style="width: 18rem;">
+    {{#each userProducts}}
+    <div class="card">
       {{!-- <img src="..." class="card-img-top" alt="..."> --}}
       <div class="card-body">
-        <h5 class="card-title">Product title</h5>
+        <h5 class="card-title">{{this.title}}</h5>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Price: ₽</li>
+        <li class="list-group-item">{{this.price}} ₽</li>
+        <li class="list-group-item">{{this.discount}} ₽</li>
       </ul>
       <div class="card-body">
         <a href="/category/{{this.id}}/edit" class="card-link btn btn-outline-warning">Edit</a>
         <button data-delBtn_id="{{this.id}}" class="deleteBtn btn btn-outline-danger" type="button">Delete</button>
       </div>
     </div>
-    {{!-- {{/each}} --}}
+    {{/each}}
   </div>
+  {{else}}
+ <h2>Личный кабинет покупателя</h2>
+<div class="profile-container">
+  <div id="userData">
+    <p>Имя пользователя: {{customer.username}}</p>
+    <p>E-mail: {{customer.email}}</p>
+    <p>Телефон: {{customer.phone}}</p>
+  </div>
+  {{/if}}
+  
 </div>

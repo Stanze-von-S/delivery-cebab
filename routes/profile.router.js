@@ -4,10 +4,15 @@ const { User, Product } = require('../db/models');
 router
   .route('/') // Нужен req params?
   .get(async (req, res) => {
-    // const currentUser = await User.findOne({ where: { id: req.session.user.id } });
-    // const userProducts = await Product.findAll({ where: { userId: req.session.user.id } });
-
-    res.render('profile');
+    if (req.session.user.role === 'courier') {
+      const courier = req.session.user;
+      const userProducts = await Product.findAll({ where: { userId: req.session.user.id } });
+      console.log(userProducts);
+      res.render('profile', { courier, userProducts });
+    } else {
+      const customer = req.session.user;
+      res.render('profile', { customer });
+    }
   });
 
 module.exports = router;
