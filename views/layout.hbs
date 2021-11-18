@@ -13,12 +13,12 @@
 
   <link rel="stylesheet" href="/styles/map.css">
   <script defer src="https://api-maps.yandex.ru/2.1/?apikey=c1dc2a25-2ea2-4b3e-87a8-d091b5e6ebb7&lang=ru_RU" type="text/javascript"></script>
-  <script defer src="/js/map.js"></script>
+  {{!-- <script defer src="/js/map.js"></script> --}}
 
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  {{!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">{{title}}</a>
       
@@ -31,15 +31,9 @@
           
       </div>
     </div>
-  </nav>
+  </nav> --}}
   
-  <div class="radiusSearchGroup">
-    <p>Радиус поиска:
-      <input type="range" min="1" max="100" step="1" name="radiusSearch" value="50">
-    </p>
-  </div>
-
-  <div id="map"></div>
+  
 
   {{{body}}}
 </body>
