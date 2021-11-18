@@ -39,12 +39,12 @@ router.post('/', async (req, res) => {
       phone,
       role,
     });
-    res.status(200).json({ message: 'User created successfully' });
+    res.json({ message: 'User created successfully' });
   } else {
     // res.render('registration', {
     //   error: true,
     // });
-    res.json()
+    res.json({ message: 'error' });
   }
 });
 
