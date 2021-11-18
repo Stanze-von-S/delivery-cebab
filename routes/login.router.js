@@ -17,16 +17,13 @@ router.post('/', async (req, res) => {
     },
   });
   if (!existUser) {
-    res.send({ message: 'error' });
+    res.send({ message: false });
   } else {
     const isCorrectPassword = await bcrypt.compare(password, existUser.password);
     if (isCorrectPassword) {
       // req.session.isCorrectPassword = true;
       req.session.user = existUser;
-      console.log(req.session);
-      console.log('hello!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-
-      return res.json({ message: true });
+      res.json({ message: true });
     }
     res.send({ message: false });
   }
