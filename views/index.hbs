@@ -8,28 +8,29 @@
     Петр Мамонов</cite>
   </figcaption>
 </figure>
+
 <div class="categoriesList">
-<h2 class="text-center">Категории</h2>
-<ul class="list text-center">
-  <div class="radiusSearchGroup">
-    <p>Радиус поиска:
-      <input type="range" min="100" max="10000" step="100" name="radiusSearch" id="radiusSearch" value="0">
-    </p>
-  </div>
+  <h2 class="text-center">Категории</h2>
+  <ul class="list">
+    {{#each categories}}
+    <li class="listItem">
+      <input data-category_index="{{this.id}}" name="my_btn" class="appendBtn btn btn-outline-success" type="button"
+        value="{{this.title}}">
+    </li>
+    {{/each}}
+  </ul>
 
-  <div id="map"></div>
+  <div id="category"></div>
+  <br>
 
-<p>Категории</p>
+  <ul class="list text-center">
+    <div class="radiusSearchGroup">
+      <p>Радиус поиска:
+        <input type="range" min="100" max="10000" step="100" name="radiusSearch" id="radiusSearch" value="0">
+      </p>
+    </div>
 
-<ul class="list">
-  {{#each categories}}
-<li class="listItem">
-<input data-category_index="{{this.id}}" name="my_btn" class="appendBtn btn btn-outline-success" type="button"
-      value="{{this.title}}">
-      </li>
-      {{/each}}
-</ul>
-
- <div id="category"></div>
- </div>
-
+    <div id="map"></div>
+  </ul>
+  
+</div>
