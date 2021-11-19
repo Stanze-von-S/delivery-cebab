@@ -89,4 +89,10 @@ function init() {
       createCircle();
     }
   });
+
+  ymaps?.addEventListener('click', (event) => {
+    if (event) {
+      const myGeocoder = ymaps.geocode('Петрозаводск');
+    }
+  });
 }
