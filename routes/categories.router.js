@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { Op } = require('sequelize');
 const { Product } = require('../db/models');
 
 router.route('/:categoryId')
@@ -10,9 +11,16 @@ router.route('/:categoryId')
     if (req.session.user) {
       customer = req.session.user.role === 'customer';
     }
-    // console.log(customer);
+    // categoryId
+    const productsRaw = await Product.findAll({
+      where: {
+        [Op.and]: [
+          { categoryId },
+          { customerId: null },
+        ],
+      },
+    });
 
-    const productsRaw = await Product.findAll({ where: { categoryId }, raw: true });
     const productsCopy = [...productsRaw];
     const products = [];
 
