@@ -7,9 +7,9 @@
     </div>
     <div class="text-center">
     <ul class="list-group list-group-flush" id="list">
-      <li class="list-group-item text-decoration-line-through">Price: {{this.price}} {{}} ₽</li>
+      <li class="list-group-item">Price: <strike>{{this.price}} ₽</strike> <span style="color: green; font-weight:bold;">{{this.discountPrice}} ₽</span> </li>
       <li class="list-group-item">Discount: {{this.discount}} %</li>
-      <li class="list-group-item">{{this.imgPath}}</li>
+      {{!-- <li class="list-group-item">{{this.imgPath}}</li> --}}
       {{#if ../customer }}
         <button type="PurchaseButton" class="buyBtn btn btn-info" data-id={{this.id}}>Купить</button>
       {{/if}}

@@ -8,7 +8,7 @@ router
     const product = await Product.findOne({ where: { id: productId } });
     const categories = await Category.findAll();
 
-    res.render('editForm', { product, categories });
+    res.render('editForm', { product, categories, user: req.session.user });
   })
   .put(async (req, res) => {
     const { productId } = req.params;
@@ -19,6 +19,7 @@ router
         discount: req.body.discount,
         latitude: req.body.latitude,
         longitude: req.body.longitude,
+        categoryId: req.body.categoryId,
       },
       {
         where: {
@@ -26,7 +27,8 @@ router
         },
       },
     );
-    res.json({ message: 'ok'});
+    console.log(req.body);
+    res.json({ message: 'ok' });
   });
 
 router
