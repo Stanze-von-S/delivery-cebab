@@ -30,6 +30,7 @@ window.addEventListener('load', async (event) => {
     (positionError) => {
       guestLatitude = 59.943683;
       guestLongitude = 30.360164;
+
       ymaps.ready(init);
     },
   );
