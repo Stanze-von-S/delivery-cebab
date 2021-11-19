@@ -32,7 +32,8 @@
         <li class="list-group-item">{{this.discount}} ₽</li>
       </ul>
       <div class="card-body">
-        <a href="/category/{{this.id}}/edit" class="card-link btn btn-outline-warning">Edit</a>
+        <a href="/api/edit/{{this.id}}" class="card-link btn btn-outline-warning">Edit</a>
+        {{!-- <button data-editBtn_id="{{this.id}}" class="editBtn btn btn-outline-danger" type="button">Edit</button> --}}
         <button data-delBtn_id="{{this.id}}" class="deleteBtn btn btn-outline-danger" type="button">Delete</button>
       </div>
     </div>
