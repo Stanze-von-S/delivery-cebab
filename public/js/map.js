@@ -1,26 +1,26 @@
 let guestLatitude; // динамическая переменная, юзер указывает свою локацию через браузер
 let guestLongitude; // динамическая переменная, юзер указывает свою локацию через браузер
+const arrGlobalCoordinates = [];
 
-const getCoordinatesBtn = document.querySelector('#getCoordinates');
 const radiusSearchSlider = document.querySelector('#radiusSearch');
 
-getCoordinatesBtn?.addEventListener('click', async (event) => {
-  // const {latitude, longitude};
-  // console.log(event);
+window.addEventListener('load', async (event) => {
   const response = await fetch('http://localhost:3000/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({
-      coordinates,
-    }),
   });
-  const jsonResponse = await response.json();
-  console.log(jsonResponse);
+  const data = await response.json();
+  data.coordinates.forEach((element) => {
+    const obj = {};
+    obj.coords = [+element.latitude, +element.longitude];
+    arrGlobalCoordinates.push(obj);
+  });
+  // console.log(arrGlobalCoordinates);
 });
 
-setTimeout(window.addEventListener('load', async (event) => {
+window.addEventListener('load', async (event) => {
   await navigator.geolocation.getCurrentPosition(
     (position) => {
       guestLatitude = position.coords.latitude;
@@ -33,20 +33,13 @@ setTimeout(window.addEventListener('load', async (event) => {
       ymaps.ready(init);
     },
   );
-}), 2000);
+});
 
 function init() {
   const myMap = new ymaps.Map('map', {
     center: [guestLatitude, guestLongitude],
-    zoom: 13,
+    zoom: 11,
     controls: [],
-  });
-
-  myMap.controls.add('zoomControl');
-  myMap.controls.add('geolocationControl');
-  myMap.controls.add('searchControl', {
-    float: 'right',
-    size: 'small',
   });
 
   const myGeoObject = new ymaps.GeoObject({
@@ -55,8 +48,25 @@ function init() {
       coordinates: [guestLatitude, guestLongitude],
     },
   }, { preset: 'islands#blackIcon' });
-
   myMap.geoObjects.add(myGeoObject);
+
+  myMap.controls.add('zoomControl');
+  myMap.controls.add('geolocationControl');
+  myMap.controls.add('searchControl', {
+    float: 'right',
+    size: 'small',
+  });
+
+  const myCollection = new ymaps.GeoObjectCollection({}, {
+    preset: 'islands#redIcon',
+    draggable: false,
+  });
+
+  arrGlobalCoordinates.forEach((points) => {
+    myCollection.add(new ymaps.Placemark(points.coords));
+  });
+
+  myMap.geoObjects.add(myCollection);
 
   let myCircle;
 
