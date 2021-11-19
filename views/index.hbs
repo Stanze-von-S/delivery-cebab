@@ -1,34 +1,23 @@
-<figure class="text-end">
-  <blockquote class="blockquote">
-    <p>Люлякибаб, люлякибаб<br>
-      Люлякибаб, люлякибаб<br>
-    </p>
-  </blockquote>
-  <figcaption class="blockquote-footer">
-    Петр Мамонов</cite>
-  </figcaption>
-</figure>
-
 <div class="categoriesList">
   <h2 class="text-center">Категории</h2>
-  <ul class="list">
+  <div class="list">
     {{#each categories}}
-    <li class="listItem">
+    {{!-- <li class="listItem"> --}}
       <input data-category_index="{{this.id}}" name="my_btn" class="appendBtn btn btn-outline-success" type="button"
         value="{{this.title}}">
-    </li>
+    {{!-- </li> --}}
     {{/each}}
-  </ul>
+  </div>
 
   <div id="category"></div>
   <br>
 
   <ul class="list text-center">
-    
+
     <div>
       <button type="button" id="getCoordinates">Где поесть</button>
     </div>
-  
+
     <div class="radiusSearchGroup">
       <p>Радиус поиска:
         <input type="range" min="100" max="10000" step="100" name="radiusSearch" id="radiusSearch" value="0">
@@ -37,5 +26,5 @@
 
     <div id="map"></div>
   </ul>
-  
+
 </div>
