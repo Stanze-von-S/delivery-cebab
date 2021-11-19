@@ -6,7 +6,7 @@ router
   .get(async (req, res) => {
     const courier = req.session.user;
     const categories = await Category.findAll({});
-    res.render('createAdv', { courier, categories });
+    res.render('createAdv', { courier, categories, user: req.session.user });
   })
   .post(async (req, res) => {
     console.log(req.body);

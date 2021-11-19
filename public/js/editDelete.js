@@ -25,7 +25,7 @@ editForm?.addEventListener('submit', async (event) => {
       discount: discount.value,
       latitude: latitude.value,
       longitude: longitude.value,
-      categoryName: categoryName.value,
+      categoryId: categoryName.value,
     }),
   });
 
