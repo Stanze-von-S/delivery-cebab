@@ -14,8 +14,6 @@ editForm?.addEventListener('submit', async (event) => {
     categoryName,
   } = event.target;
 
-  console.log(action);
-
   const response = await fetch(action, {
     method: 'PUT',
     headers: {
@@ -49,5 +47,7 @@ productsDiv?.addEventListener('click', async (event) => {
     document.location.reload();
   }
 });
+
+
 
 // TODO: edit btn, create adv, multer, styles
