@@ -1,14 +1,27 @@
  
  {{#if courier}}
- <h2>Личный кабинет курьера</h2>
+
+ <h2 style="text-align: center;">🍕 <i>Личный кабинет курьера</i> 🍕</h2>
 <div class="profile-container">
   <div id="userData">
-    <p>Имя пользователя: {{courier.username}}</p>
-    <p>E-mail: {{courier.email}}</p>
-    <p>Телефон: {{courier.phone}}</p>
+    <p>Имя пользователя: <b>{{courier.username}}</b></p>
+    <p>E-mail: <b>{{courier.email}}</b></p>
+    <p>Телефон: <b>{{courier.phone}}</b></p>
+    <br>
+    <h4>Активные заказы: </h4>
+    {{#each orders}}
+    <br>
+    <p>Заказ: <b>{{this.title}}</b></p>
+    <p>Покупатель: <b>{{this.thisCustomer.username}}</b></p>
+    <p>Телефон: <b>{{this.thisCustomer.phone}}</b></p>
+    
+    {{/each}}
+
   </div>
   <div id="product-list-container">
+
     {{#each userProducts}}
+
     <div class="card">
       {{!-- <img src="..." class="card-img-top" alt="..."> --}}
       <div class="card-body">
@@ -19,20 +32,27 @@
         <li class="list-group-item">{{this.discount}} ₽</li>
       </ul>
       <div class="card-body">
-        <a href="/category/{{this.id}}/edit" class="card-link btn btn-outline-warning">Edit</a>
+        <a href="/api/edit/{{this.id}}" class="card-link btn btn-outline-warning">Edit</a>
+        {{!-- <button data-editBtn_id="{{this.id}}" class="editBtn btn btn-outline-danger" type="button">Edit</button> --}}
         <button data-delBtn_id="{{this.id}}" class="deleteBtn btn btn-outline-danger" type="button">Delete</button>
       </div>
     </div>
+
     {{/each}}
+
   </div>
+
   {{else}}
- <h2>Личный кабинет покупателя</h2>
+
+ <h2 style="text-align: center;">🍔 <i>Личный кабинет покупателя</i> 🍔</h2>
 <div class="profile-container">
   <div id="userData">
-    <p>Имя пользователя: {{customer.username}}</p>
-    <p>E-mail: {{customer.email}}</p>
-    <p>Телефон: {{customer.phone}}</p>
+    <p>Имя пользователя: <b>{{customer.username}}</b></p>
+    <p>E-mail: <b>{{customer.email}}</b></p>
+    <p>Телефон: <b>{{customer.phone}}</b></p>
+    <br>
   </div>
+
   {{/if}}
   
 </div>
