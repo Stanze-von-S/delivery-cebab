@@ -7,7 +7,9 @@
     <p>Имя пользователя: <b>{{courier.username}}</b></p>
     <p>E-mail: <b>{{courier.email}}</b></p>
     <p>Телефон: <b>{{courier.phone}}</b></p>
+    <a href="/api/create/{{courier.id}}" class="card-link btn btn-outline-warning">🍕🍕🍕🍕</a>
     <br>
+    
     <h4>Активные заказы: </h4>
     {{#each orders}}
     <br>
@@ -32,9 +34,8 @@
         <li class="list-group-item">{{this.discount}} ₽</li>
       </ul>
       <div class="card-body">
-        <a href="/api/edit/{{this.id}}" class="card-link btn btn-outline-warning">Edit</a>
-        {{!-- <button data-editBtn_id="{{this.id}}" class="editBtn btn btn-outline-danger" type="button">Edit</button> --}}
-        <button data-delBtn_id="{{this.id}}" class="deleteBtn btn btn-outline-danger" type="button">Delete</button>
+        <a href="/api/edit/{{this.id}}" class="card-link btn btn-outline-warning">Изменить</a>
+        <button data-delBtn_id="{{this.id}}" class="deleteBtn btn btn-outline-danger" type="button">Удалить</button>
       </div>
     </div>
 

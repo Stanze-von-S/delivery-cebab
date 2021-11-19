@@ -1,10 +1,10 @@
-<form name="editForm" action="/api/edit/{{product.id}}">
+<form name="createForm" action="/api/create/{{courier.id}}" method="POST">
 
   <div class="mb-3">
-    <label for="exampleFormControlInput1" class="form-label">Edit Adv</label>
-    <input required name="title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{product.title}}">
-    <input required name="price" type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{product.price}}">
-    <input required name="discount" type="text" class="form-control" id="exampleFormControlInput1" placeholder="{{product.discount}}">
+    <label for="exampleFormControlInput1" class="form-label">Добавление продукта</label>
+    <input required name="title" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Наименование продукта 🍔">
+    <input required name="price" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Стоимость 💰">
+    <input required name="discount" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Скидка 💸">
     <input name="latitude" type="text" class="form-control" id="exampleFormControlInput1" placeholder="latitude">
     <input name="longitude" type="text" class="form-control" id="exampleFormControlInput1" placeholder="longitude">
 
