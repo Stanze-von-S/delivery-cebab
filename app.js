@@ -12,6 +12,7 @@ const logoutRouter = require('./routes/logout.router');
 const profileRouter = require('./routes/profile.router');
 const categoriesRouter = require('./routes/categories.router');
 const editRouter = require('./routes/api/edit.router');
+const buyRouter = require('./routes/api/buy.router');
 const createAdvRouter = require('./routes/api/createAdv.router');
 
 const PORT = process.env.PORT ?? 3000;
@@ -49,6 +50,7 @@ app.use('/logout', logoutRouter);
 app.use('/profile', profileRouter);
 app.use('/category', categoriesRouter);
 app.use('/api/edit', editRouter);
+app.use('/api/buy', buyRouter);
 app.use('/api/create', createAdvRouter);
 
 app.listen(PORT, () => {

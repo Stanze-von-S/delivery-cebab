@@ -12,3 +12,5 @@ buttons.forEach((btn) => {
     category.innerHTML = data;
   });
 });
+
+
