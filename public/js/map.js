@@ -92,7 +92,7 @@ function init() {
 
   // Слушаем клик на карте.
   myMap.events.add('click', (event) => {
-    const coords = event.get('coords');
+    const clickCoords = event.get('coords');
 
     function getAddress(coords) {
       myPlacemark.properties.set('iconCaption', 'поиск...');
@@ -123,10 +123,12 @@ function init() {
       });
     }
 
-    const myPlacemark = createPlacemark(coords);
+    const myPlacemark = createPlacemark(clickCoords);
     myMap.geoObjects.add(myPlacemark);
 
-    getAddress(coords);
-    console.log(coords);
+    getAddress(clickCoords);
+    // console.log(clickCoords);
+    document.createForm.latitude.value = clickCoords[0];
+    document.createForm.longitude.value = clickCoords[1];
   });
 }
