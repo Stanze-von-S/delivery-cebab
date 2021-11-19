@@ -70,7 +70,7 @@ function init() {
 
   let myCircle;
 
-  radiusSearchSlider.addEventListener('change', (event) => {
+  radiusSearchSlider?.addEventListener('change', (event) => {
     const createCircle = () => {
       myCircle = new ymaps.GeoObject({
         geometry: {
@@ -90,9 +90,43 @@ function init() {
     }
   });
 
-  ymaps?.addEventListener('click', (event) => {
-    if (event) {
-      const myGeocoder = ymaps.geocode('Петрозаводск');
+  // Слушаем клик на карте.
+  myMap.events.add('click', (event) => {
+    const coords = event.get('coords');
+
+    function getAddress(coords) {
+      myPlacemark.properties.set('iconCaption', 'поиск...');
+      ymaps.geocode(coords).then((res) => {
+        const firstGeoObject = res.geoObjects.get(0);
+
+        myPlacemark.properties
+          .set({
+            // Формируем строку с данными об объекте.
+            iconCaption: [
+              // Название населенного пункта или вышестоящее административно-территориальное образование.
+              firstGeoObject.getLocalities().length ? firstGeoObject.getLocalities() : firstGeoObject.getAdministrativeAreas(),
+              // Получаем путь до топонима, если метод вернул null, запрашиваем наименование здания.
+              firstGeoObject.getThoroughfare() || firstGeoObject.getPremise(),
+            ].filter(Boolean).join(', '),
+            // В качестве контента балуна задаем строку с адресом объекта.
+            balloonContent: firstGeoObject.getAddressLine(),
+          });
+      });
     }
+
+    function createPlacemark(coords) {
+      return new ymaps.Placemark(coords, {
+        iconCaption: 'поиск...',
+      }, {
+        preset: 'islands#violetDotIconWithCaption',
+        draggable: false,
+      });
+    }
+
+    const myPlacemark = createPlacemark(coords);
+    myMap.geoObjects.add(myPlacemark);
+
+    getAddress(coords);
+    console.log(coords);
   });
 }
